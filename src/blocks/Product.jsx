@@ -2,7 +2,7 @@ import React from "react";
 
 const Product = ({product}) => {
     return(
-        <div className="block-product p-4 mt-2 border rounded-lg w-80 flex-shrink-0 snap-start m-auto shadow-2xl ">
+        <div className="block-product p-4 mt-2 border rounded-lg w-full flex-shrink-0 snap-start m-auto shadow-2xl ">
             <div className="block-product-image">
                 <img src={product.image} alt="" className="w-full center h-40 m-auto rounded shadow"/>
             </div>

@@ -9,6 +9,7 @@ export default function Home(){
     return (
         <Default>
             <ProductSlider products={products} />
+            <ProductSlider products={products} />
         </Default>
     )
 }
