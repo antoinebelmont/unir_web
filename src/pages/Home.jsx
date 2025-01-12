@@ -8,7 +8,11 @@ export default function Home(){
     const products = data.length >= 1 ? JSON.parse(data).products : [];
     return (
         <Default>
+            <div className="mt-1"><label>Productos sin existencia</label></div>
             <ProductSlider products={products} />
+            <div className="mt-1"><span>Productos con poca existencia (menos de 5)</span></div>
+            <ProductSlider products={products} />
+            <div className="mt-1"><span>Solicitud de productos</span></div>
             <ProductSlider products={products} />
         </Default>
     )

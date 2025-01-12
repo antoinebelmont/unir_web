@@ -3,14 +3,14 @@ const fs = require('node:fs');
 
 function createRandomUser() {
     return {
-        userID: faker.string.uuid(),
+        id: faker.string.uuid(),
         name: faker.person.fullName(),
 
     }
 }
 function createRandomProduct(){
     return {
-        productId: faker.string.uuid(),
+        id: faker.number.int({max: 100}),
         image: faker.image.urlLoremFlickr(),
         name: faker.commerce.product(),
         description: faker.commerce.productDescription(),
