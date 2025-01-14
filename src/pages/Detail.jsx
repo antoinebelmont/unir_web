@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect, useContext} from "react";
 import Default from "./default";
 import NameAppContext from "../context/NameAppContext";
 import { useParams } from 'react-router-dom';
+import Product from "../blocks/ProductDetail";
+import ProductSlider from "../components/ProductSlider";
 
 
 export default function Detail(){
+    let data = useContext(NameAppContext);
+    const products = data.length >= 1 ? JSON.parse(data).products : [];
     const { id } = useParams();
     const [product, setProduct] = useState({})
     useEffect(() => {
@@ -18,7 +22,9 @@ export default function Detail(){
     console.log(product)
     return(
         <Default>
-            ola k ase {product.name}
+            <Product product={product}/>
+            <div className="mt-1 text-xl font-bold"><span>Solicitud de productos</span></div>
+            <ProductSlider products={products}/>
         </Default>
     )
 }
