@@ -1,5 +1,5 @@
 import { createContext} from "react";
 
-const NameAppContext = createContext('estrella');
+const NameAppContext = createContext(undefined);
 
 export default NameAppContext;

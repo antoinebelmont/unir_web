@@ -3,7 +3,6 @@ import useButtons from "../hooks/useButtons";
 import DetailButtons from "./DetailButtons";
 
 const ProductDetail = ({product}) => {
-    const {backButton, saleButton} = useButtons();
     return(
         <div className="block-product p-4 mt-2 bg-gray-100 border rounded-lg flex-shrink-0 lg:w-1/2 mx-auto">
             <div className="flex flex-col lg:flex-row xl:flex-row">
@@ -20,7 +19,7 @@ const ProductDetail = ({product}) => {
                     </tbody>
                 </table>
             </div>
-            <DetailButtons />
+            <DetailButtons id={product.id}/>
         </div>
     )
 }

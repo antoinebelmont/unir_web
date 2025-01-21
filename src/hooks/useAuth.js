@@ -1,27 +1,23 @@
 import {createContext, useContext, useStatem, useEffect, useState} from "react";
+import { useNavigate } from "react-router-dom"
 
 const AuthContext = createContext(undefined)
 
 export function AuthProvider({ children }){
     const [user, setUser] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
+    const navigate = useNavigate()
 
     useEffect(() => {
         checkAuth().then(response => console.log('checked'));
     }, []);
 
     const checkAuth = async () => {
-        try{
-            const response = await fetch('', {
-                credentials: 'include'
-            })
-            const data = await response.json()
-            setUser(data)
-        }catch (error) {
-            console.error('Failed to check auth status:', error)
-            setUser(null)
-        } finally {
-            setIsLoading(false)
+        const token = localStorage.getItem('token')
+        if(token === null && window.location.pathname !== '/login'){
+            return navigate("/login")
+        }else{
+            return navigate("/")
         }
     }
 

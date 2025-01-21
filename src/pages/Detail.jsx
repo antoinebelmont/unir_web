@@ -7,16 +7,14 @@ import ProductSlider from "../components/ProductSlider";
 
 
 export default function Detail(){
-    let data = useContext(NameAppContext);
-    const products = data.length >= 1 ? JSON.parse(data).products : [];
+    let {data} = useContext(NameAppContext);
+    let productConsulted;
+    const products = (data && data.products.length >= 1) ? data.products : [];
     const { id } = useParams();
     const [product, setProduct] = useState({})
     useEffect(() => {
-        const host = 'http://192.168.100.6:3030';
-        fetch(`${host}/products/${id}`).then((res) => res.json())
-            .then(product => {
-                setProduct(product)
-            })
+        productConsulted = products.filter(product => product.id == id)
+        setProduct(productConsulted[0])
     }, []);
     return(
         <Default>
