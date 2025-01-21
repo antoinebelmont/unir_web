@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import AcceptFunction from "./AcceptButton";
 
 const Product = ({product}) => {
     return(
@@ -16,6 +17,9 @@ const Product = ({product}) => {
                 <tr><td className="bg-gray-500 text-white">Precio</td><td>{product.price}</td></tr>
             </table>
             </Link>
+            <div className="mt-2">
+                <AcceptFunction />
+            </div>
         </div>
     )
 }

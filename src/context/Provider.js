@@ -3,7 +3,7 @@ import NameAppContext from './NameAppContext';
 
 function Provider({ children }){
     const [data, setData] = useState('');
-    const host = 'http://localhost:3030';
+    const host = 'http://192.168.100.6:3030';
     useEffect(() => {
         fetch(`${host}/products`).then((res) => res.json())
             .then(products => {

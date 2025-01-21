@@ -2,7 +2,7 @@ import React, {useState, useEffect, useContext} from "react";
 import Default from "./default";
 import NameAppContext from "../context/NameAppContext";
 import { useParams } from 'react-router-dom';
-import Product from "../blocks/ProductDetail";
+import Product from "../components/ProductDetail";
 import ProductSlider from "../components/ProductSlider";
 
 
@@ -12,14 +12,12 @@ export default function Detail(){
     const { id } = useParams();
     const [product, setProduct] = useState({})
     useEffect(() => {
-        const host = 'http://localhost:3030';
+        const host = 'http://192.168.100.6:3030';
         fetch(`${host}/products/${id}`).then((res) => res.json())
             .then(product => {
                 setProduct(product)
-                    
             })
     }, []);
-    console.log(product)
     return(
         <Default>
             <Product product={product}/>
